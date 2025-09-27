@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daivik Nambiar</title>
+  <meta name="description" content="Personal portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#1f3a5f;        /* darker minimal blue */
+      --ink:#2a2f36;       /* dark text */
+      --ink-dim:#4d5560;   /* muted text */
+      --paper:#ffffff;     /* white */
+      --accent:#2d6cdf;    /* link + button */
+      --nav:#eef2f6;       /* light nav */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);scroll-behavior:smooth}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Top nav */
+    .nav{
+      position:sticky;top:0;z-index:10;
+      display:flex;gap:24px;align-items:center;justify-content:center;
+      height:56px;padding:0 16px;background:var(--nav);border-bottom:1px solid #d8e1ea
+    }
+    .brand{font-weight:800;letter-spacing:.08em}
+    .nav a{color:#2a2f36;font-weight:600}
+
+    /* Hero */
+    .hero{min-height:82vh;display:grid;place-items:center;background:var(--bg);position:relative;overflow:hidden}
+    .hero-inner{display:grid;place-items:center;text-align:center;padding:64px 16px}
+    .name{font-size:clamp(28px,6vw,56px);font-weight:800;color:#fff;margin:0 0 6px}
+    .tag{font-size:clamp(14px,2.4vw,20px);font-weight:700;color:#f4f7fb;letter-spacing:.06em;margin:0}
+
+    /* Sections */
+    section{padding:84px 20px;max-width:1024px;margin:0 auto}
+    section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
+    .lead{color:var(--ink-dim);max-width:70ch}
+
+    /* Work cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+    .card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .chip{display:inline-block;background:#edf2ff;color:#314680;padding:2px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+
+    /* Contact */
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:12px 16px;border-radius:10px}
+    .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+
+    /* Footer */
+    footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
+
+    /* Small screens */
+    @media (max-width:720px){
+      .hero{min-height:60vh}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#home">DN.</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero-inner">
+      <h1 class="name">DAIVIK NAMBIAR</h1>
+      <p class="tag">DATA SCIENTIST</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lead">I’m a data scientist passionate about the intersections of data and business. I enjoy building fast, accessible data-driven solutions that empower decision making. With experience across SQL, Python, and machine learning, I bridge analytics and strategy to create impact. This site is a super-simple, single-file portfolio hosted on GitHub Pages.</p>
+  </section>
+
+  <section id="work">
+    <h2>Selected Work</h2>
+    <p class="lead">A few projects I’m proud of. Replace these with your own repos or case studies.</p>
+    <div class="grid">
+      <article class="card">
+        <h3><a href="#">NBA Streamlit Dashboard</a></h3>
+        <p>Scrapes league news and visualizes trends.</p>
+        <div class="chip">Python</div><div class="chip">Streamlit</div>
+      </article>
+      <article class="card">
+        <h3><a href="#">SQL Self-Service App</a></h3>
+        <p>Power Apps + Automate to edit SQL safely with flows.</p>
+        <div class="chip">Power Apps</div><div class="chip">SQL</div>
+      </article>
+      <article class="card">
+        <h3><a href="#">RAG Resume Critiquer</a></h3>
+        <p>Embeddings + LLM to critique resumes against JD.</p>
+        <div class="chip">Python</div><div class="chip">LlamaIndex</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p class="lead">Point this to your Dev.to, Medium, or GitHub Discussions; or keep it simple and write markdown posts in a <code>/posts</code> folder and link them here.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lead">Open to new opportunities and collaborations. The easiest way to reach me is via email or LinkedIn.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:you@example.com">Email me</a>
+      <a class="btn outline" href="https://github.com/yourname">GitHub</a>
+      <a class="btn outline" href="https://www.linkedin.com/in/daiviknambiar/">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Daivik Nambiar. Built with plain HTML/CSS. Hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
