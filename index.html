@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Prism.js for syntax highlighting (code window) -->
+  <!-- Prism.js for syntax highlighting -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
@@ -33,7 +33,7 @@
     /* Top nav */
     .nav{
       position:sticky;top:0;z-index:10;
-      display:grid;grid-template-columns:1fr auto 1fr; /* brand | centered links | icons */
+      display:grid;grid-template-columns:1fr auto 1fr;
       align-items:center;gap:12px;
       height:64px;padding:0 20px;background:var(--nav);border-bottom:1px solid #d8e1ea;
     }
@@ -43,35 +43,17 @@
     .nav a{color:#2a2f36;font-weight:600}
 
     /* Hero */
-    .hero{
-      background: var(--bg);
-      color:#fff;
-      position:relative;
-      overflow:hidden;
-    }
+    .hero{background: var(--bg);color:#fff;position:relative;overflow:hidden}
     .hero-inner{
-      max-width:1100px;
-      margin:0 auto;
-      padding:64px 20px;
-      min-height:72vh;
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;   /* left: title, right: code window */
-      align-items:center;
-      gap:32px;
+      max-width:1100px;margin:0 auto;padding:64px 20px;min-height:72vh;
+      display:grid;grid-template-columns: 1.1fr 0.9fr;align-items:center;gap:32px;
     }
     .name{font-size:clamp(32px,7vw,64px);font-weight:800;margin:0 0 10px}
     .tag{font-size:clamp(14px,2.4vw,22px);font-weight:800;letter-spacing:.08em;margin:0;color:#eaf0ff}
-    .hero-left p{color:#f2f5ff;opacity:.95;max-width:60ch;margin-top:8px}
 
-    /* Code window (right side of hero) */
-    .code-window{
-      background:#1e1e2e;border-radius:12px;overflow:hidden;
-      box-shadow:0 12px 40px rgba(0,0,0,.35); max-width:520px; justify-self:end;
-      border:1px solid rgba(255,255,255,.08)
-    }
-    .code-header{
-      background:#2b2b3c;padding:8px 12px;display:flex;gap:8px;
-    }
+    /* Code window */
+    .code-window{background:#1e1e2e;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.35);max-width:520px;justify-self:end;border:1px solid rgba(255,255,255,.08)}
+    .code-header{background:#2b2b3c;padding:8px 12px;display:flex;gap:8px}
     .code-header .dot{height:12px;width:12px;border-radius:50%;display:inline-block}
     .dot.red{background:#ff5f56}.dot.yellow{background:#ffbd2e}.dot.green{background:#27c93f}
     .code-body{margin:0;padding:16px;background:#1e1e2e;overflow-x:auto}
@@ -87,11 +69,11 @@
     .card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease, background .2s ease}
     .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.12)}
     .card header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-    .card .logo{height:28px;width:auto;margin-right:8px;vertical-align:middle;opacity:.95}
+    .card .logo{height:28px;width:auto;opacity:.95}
     .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 10px}
     .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
 
-    /* Brand-tinted backgrounds + hover */
+    /* Brand backgrounds */
     .company-unc{background:#e6f3ed;border-color:#cde6db}
     .company-unc:hover{background:#d3e9de}
     .company-compass{background:#fff7e6;border-color:#ffe0b3}
@@ -101,23 +83,21 @@
     .company-niner{background:#e6f3ed;border-color:#cde6db}
     .company-niner:hover{background:#d3e9de}
 
-    /* Project cards */
+    /* Projects */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+    .card h3{margin:0 0 4px;font-size:18px}
 
-    /* Chips (darker blue across site) */
-    .chip{
-      display:inline-block;background:#d6e4ff;color:#1d3a8a;
-      padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0
-    }
+    /* Chips */
+    .chip{display:inline-block;background:#d6e4ff;color:#1d3a8a;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
 
-    /* CTA buttons */
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;align-items:center}
-    .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:12px 16px;border-radius:10px}
+    /* Buttons */
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center}
+    .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:10px 14px;border-radius:8px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
 
     footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
 
-    /* Small screens */
+    /* Responsive */
     @media (max-width:900px){
       .hero-inner{grid-template-columns:1fr;min-height:64vh}
       .code-window{justify-self:stretch;max-width:none}
@@ -130,7 +110,7 @@
     }
   </style>
 
-  <!-- (Optional) Font Awesome if you still use header icons -->
+  <!-- Font Awesome (for GitHub/LinkedIn icons) -->
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 
   <!-- Favicon 👋 -->
@@ -157,15 +137,10 @@
       <div class="hero-left">
         <h1 class="name">DAIVIK NAMBIAR</h1>
         <p class="tag">DATA SCIENTIST</p>
-        <!-- (Optional short blurb) -->
-        <!-- <p>Data science • BI • AI engineering — building things that turn data into decisions.</p> -->
       </div>
-
-      <div class="code-window" aria-label="Hello World code window">
+      <div class="code-window">
         <div class="code-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
         </div>
         <pre class="code-body"><code class="language-python">
 def hello():
@@ -184,43 +159,23 @@ print(hello())
 
     <h3 class="subhead">Career Journey</h3>
     <div class="journey">
-      <!-- Education -->
       <article class="card company-unc">
-        <header>
-          <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="UNC Charlotte Sports Analytics"><img class="logo" src="Charlotte_49ers_logo.svg" alt="UNC Charlotte logo"></a>
-          <h3>University of North Carolina at Charlotte — B.S. Data Science</h3>
-        </header>
-        <p class="date">May 2026</p>
-        <p>Concentrations: Artificial Intelligence, Economics, Sports Analytics</p>
+        <header><img class="logo" src="Charlotte_49ers_logo.svg" alt="UNC Charlotte logo"><h3>UNC Charlotte — B.S. Data Science</h3></header>
+        <p class="date">May 2026</p><p>Concentrations: AI, Economics, Sports Analytics</p>
         <div class="chip">UNC Charlotte</div><div class="chip">Data Science</div>
       </article>
-
-      <!-- Compass Group -->
       <article class="card company-compass">
-        <header>
-          <a href="https://www.compass-usa.com/" target="_blank" title="Compass Group"><img class="logo" src="Compass_Group.svg.png" alt="Compass Group logo"></a>
-          <h3>Compass Group — Business Intelligence & Projects Intern</h3>
-        </header>
+        <header><img class="logo" src="Compass_Group.svg.png" alt="Compass Group logo"><h3>Compass Group — BI & Projects Intern</h3></header>
         <p class="date">May 2025 – Present · Charlotte, NC</p>
         <div class="chip">SQL</div><div class="chip">Dataverse</div><div class="chip">Power Apps</div><div class="chip">Power Automate</div><div class="chip">Python</div><div class="chip">SSMS</div><div class="chip">Snowflake</div>
       </article>
-
-      <!-- Elevate -->
       <article class="card company-elevate">
-        <header>
-          <a href="https://www.oneelevate.com/" target="_blank" title="Elevate"><img class="logo" src="elevate-secondary_blk_SMALL.png" alt="Elevate logo"></a>
-          <h3>Elevate — Data Associate</h3>
-        </header>
+        <header><img class="logo" src="elevate-secondary_blk_SMALL.png" alt="Elevate logo"><h3>Elevate — Data Associate</h3></header>
         <p class="date">Apr 2024 – May 2025 · Charlotte, NC</p>
         <div class="chip">Excel</div><div class="chip">Power Query</div><div class="chip">Python</div><div class="chip">Web Scraping</div><div class="chip">Power BI</div>
       </article>
-
-      <!-- Niner Stats -->
       <article class="card company-niner">
-        <header>
-          <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="Niner Stats Program"><img class="logo" src="Niner_Stats.jpg" alt="Niner Stats logo"></a>
-          <h3>Niner Stats — Basketball Analytics Intern</h3>
-        </header>
+        <header><img class="logo" src="Niner_Stats.jpg" alt="Niner Stats logo"><h3>Niner Stats — Basketball Analytics Intern</h3></header>
         <p class="date">Aug 2024 – Mar 2024 · UNC Charlotte</p>
         <div class="chip">Python</div><div class="chip">Google Sheets</div>
       </article>
@@ -232,31 +187,32 @@ print(hello())
     <h2>Projects</h2>
     <div class="grid">
       <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">NBA News Web Scraper App</a></h3>
+        <h3>NBA News Web Scraper App</h3>
         <p class="date">September 2025</p>
         <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
+        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a></div>
       </article>
-
       <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">AI Resume Critique Agent</a></h3>
+        <h3>AI Resume Critique Agent</h3>
         <p class="date">May – June 2025</p>
         <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
+        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a></div>
       </article>
-
       <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">Charlotte Club Basketball Stats App</a></h3>
+        <h3>Charlotte Club Basketball Stats App</h3>
         <p class="date">April 2024</p>
         <p>Built a Streamlit web app to automate team stats tracking, reducing manual entry by ~2 hours per game and enabling real-time insights for coaches.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div>
+        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a></div>
       </article>
-
       <article class="card">
-        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">Carolina Hurricanes Sports Business Analytics Challenge</a></h3>
+        <h3>Carolina Hurricanes Sports Business Analytics Challenge</h3>
         <p class="date">March 2024</p>
         <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
         <div class="chip">Python</div><div class="chip">Tableau</div>
+        <div class="cta"><a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a></div>
       </article>
     </div>
   </section>
