@@ -28,9 +28,9 @@
       display:flex;align-items:center;justify-content:center;
       height:64px;padding:0 20px;background:var(--nav);border-bottom:1px solid #d8e1ea;
     }
-    .nav-center{flex:1;display:flex;justify-content:center;gap:24px}
-    .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;position:absolute;top:16px;right:120px;color:#2a2f36}
-    .social-icons{position:absolute;top:16px;right:20px;display:flex;gap:12px;font-size:22px}
+    .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-right:auto;color:#2a2f36}
+    .nav-center{display:flex;justify-content:center;gap:24px;flex:1}
+    .social-icons{display:flex;gap:12px;font-size:22px;margin-left:auto}
     .nav a{color:#2a2f36;font-weight:600}
 
     /* Hero */
@@ -62,24 +62,23 @@
 
     /* Small screens */
     @media (max-width:720px){
-      .hero{min-height:60vh}
-      .brand{position:static;margin-left:auto;margin-right:auto}
-      .social-icons{position:static}
       .nav{flex-wrap:wrap;height:auto;gap:12px;justify-content:center}
       .nav-center{order:2;flex-wrap:wrap}
+      .brand{order:1;margin:0 auto}
+      .social-icons{order:3;margin:0 auto}
     }
   </style>
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav class="nav">
+    <a class="brand" href="#home">Daivik Nambiar</a>
     <div class="nav-center">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="brand" href="#home">Daivik Nambiar</a>
     <div class="social-icons">
       <a href="https://github.com/daiviknambiar" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/daiviknambiar/" target="_blank"><i class="fab fa-linkedin"></i></a>
