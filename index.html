@@ -7,15 +7,15 @@
   <meta name="description" content="Personal portfolio" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#1f3a5f;        /* darker minimal blue */
-      --ink:#2a2f36;       /* dark text */
-      --ink-dim:#4d5560;   /* muted text */
-      --paper:#ffffff;     /* white */
-      --accent:#2d6cdf;    /* link + button */
-      --nav:#eef2f6;       /* light nav */
+      --bg:#1f3a5f;
+      --ink:#2a2f36;
+      --ink-dim:#4d5560;
+      --paper:#ffffff;
+      --accent:#2d6cdf;
+      --nav:#eef2f6;
     }
     *{box-sizing:border-box}
     html,body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);scroll-behavior:smooth}
@@ -25,10 +25,12 @@
     /* Top nav */
     .nav{
       position:sticky;top:0;z-index:10;
-      display:flex;gap:24px;align-items:center;justify-content:center;
-      height:56px;padding:0 16px;background:var(--nav);border-bottom:1px solid #d8e1ea
+      display:flex;align-items:center;justify-content:center;
+      height:64px;padding:0 20px;background:var(--nav);border-bottom:1px solid #d8e1ea;
     }
-    .brand{font-weight:900;letter-spacing:.05em;font-size:20px}
+    .nav-center{flex:1;display:flex;justify-content:center;gap:24px}
+    .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;position:absolute;top:16px;right:120px;color:#2a2f36}
+    .social-icons{position:absolute;top:16px;right:20px;display:flex;gap:12px;font-size:22px}
     .nav a{color:#2a2f36;font-weight:600}
 
     /* Hero */
@@ -42,11 +44,12 @@
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
-    /* Work cards */
+    /* Project cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
     .card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
     .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-    .card h3{margin:0 0 8px;font-size:18px}
+    .card h3{margin:0 0 4px;font-size:18px}
+    .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 12px}
     .chip{display:inline-block;background:#edf2ff;color:#314680;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
 
     /* Contact */
@@ -54,26 +57,29 @@
     .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:12px 16px;border-radius:10px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
 
-    /* Social icons */
-    .social-icons a{margin-left:12px;color:var(--ink);font-size:22px}
-
     /* Footer */
     footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
 
     /* Small screens */
     @media (max-width:720px){
       .hero{min-height:60vh}
+      .brand{position:static;margin-left:auto;margin-right:auto}
+      .social-icons{position:static}
+      .nav{flex-wrap:wrap;height:auto;gap:12px;justify-content:center}
+      .nav-center{order:2;flex-wrap:wrap}
     }
   </style>
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav class="nav">
+    <div class="nav-center">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
     <a class="brand" href="#home">Daivik Nambiar</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
     <div class="social-icons">
       <a href="https://github.com/daiviknambiar" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/daiviknambiar/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -96,22 +102,26 @@
     <h2>Projects</h2>
     <div class="grid">
       <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">NBA News Web Scraper App (Sep 2025)</a></h3>
-        <p>Interactive news browser that scrapes the latest NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
+        <h3><a href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">NBA News Web Scraper App</a></h3>
+        <p class="date">September 2025</p>
+        <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
       </article>
       <article class="card">
-        <h3>AI Resume Critique Agent (May–Jun 2025)</h3>
-        <p>Built a resume evaluation tool using cosine similarity to score alignment with job descriptions, providing actionable insights for applicants.</p>
+        <h3>AI Resume Critique Agent</h3>
+        <p class="date">May – June 2025</p>
+        <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
       </article>
       <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">Charlotte Club Basketball Stats App (Apr 2024)</a></h3>
-        <p>Developed a Streamlit web app to automate team statistics tracking, reducing manual entry by ~2 hours per game and enabling real-time insights for coaching staff.</p>
+        <h3><a href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">Charlotte Club Basketball Stats App</a></h3>
+        <p class="date">April 2024</p>
+        <p>Built a Streamlit web app to automate team stats tracking, reducing manual entry by ~2 hours per game and enabling real-time insights for coaches.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div>
       </article>
       <article class="card">
-        <h3>Carolina Hurricanes Analytics Challenge (Mar 2024)</h3>
+        <h3>Carolina Hurricanes Analytics Challenge</h3>
+        <p class="date">March 2024</p>
         <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
         <div class="chip">Python</div><div class="chip">Tableau</div>
       </article>
