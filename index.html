@@ -41,18 +41,21 @@
     .tag{font-size:clamp(14px,2.4vw,20px);font-weight:700;color:#f4f7fb;letter-spacing:.06em;margin:0}
 
     /* Sections */
-    section{padding:84px 20px;max-width:1024px;margin:0 auto}
+    section{padding:64px 20px;max-width:1024px;margin:0 auto}
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
     /* Career Journey timeline */
-    .journey{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
-    .step{position:relative}
-    .step::after{content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--ink-dim)}
-    .step:last-child::after{display:none}
+    .journey{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+    /* arrows removed */
     .card .logo{height:28px;width:auto;margin-right:8px;vertical-align:middle;opacity:.9}
     .card header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-    .subhead{font-size:18px;margin:24px 0 8px;font-weight:800}
+    .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
+    /* light brand backgrounds for journey cards */
+    .company-unc{background:#eaf5ee;border-color:#d6e8db}
+    .company-compass{background:#fff8ea;border-color:#f3e3bd}
+    .company-elevate{background:#f4f4f6;border-color:#e3e3e7}
+    .company-niner{background:#eaf3ee;border-color:#d7e6dc}
 
     /* Project cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
@@ -110,58 +113,14 @@
     <h3 class="subhead">Career Journey</h3>
     <div class="journey">
       <!-- Education -->
-      <article class="card step">
-        <header>
-          <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="UNC Charlotte Sports Analytics"><img class="logo" src="Charlotte_49ers_logo.svg" alt="UNC Charlotte logo"></a>
-          <h3>University of North Carolina at Charlotte — B.S. Data Science</h3>
-        </header>
-        <p class="date">May 2026</p>
-        <p>Concentrations: Artificial Intelligence, Economics, Sports Analytics • GPA: 3.7/4.0</p>
-      </article>
-
-      <!-- Compass Group -->
-      <article class="card step">
-        <header>
-          <a href="https://www.compass-usa.com/" target="_blank" title="Compass Group"><img class="logo" src="Compass_Group.svg.png" alt="Compass Group logo"></a>
-          <h3>Compass Group — Business Intelligence & Projects Intern</h3>
-        </header>
-        <p class="date">May 2025 – Present · Charlotte, NC</p>
-        <p>Tools: SQL, Microsoft Dataverse, Power Apps, Power Automate, Python, SSMS, Snowflake</p>
-      </article>
-
-      <!-- Elevate -->
-      <article class="card step">
-        <header>
-          <a href="https://www.oneelevate.com/" target="_blank" title="Elevate"><img class="logo" src="elevate-secondary_blk_SMALL.png" alt="Elevate logo"></a>
-          <h3>Elevate — Data Associate</h3>
-        </header>
-        <p class="date">Apr 2024 – May 2025 · Charlotte, NC</p>
-        <p>Tools: Excel, Power Query, Python, Web Scraping</p>
-      </article>
-
-      <!-- Niner Stats -->
-      <article class="card step">
+      <article class="card step company-niner">
         <header>
           <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="Niner Stats Program"><img class="logo" src="Niner_Stats.jpg" alt="Niner Stats logo"></a>
           <h3>Niner Stats — Basketball Analytics Intern</h3>
         </header>
         <p class="date">Aug 2024 – Mar 2024 · UNC Charlotte</p>
-        <p>Tools: Python, Google Sheets</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="grid">
-      <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">NBA News Web Scraper App</a></h3>
-        <p class="date">September 2025</p>
-        <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
-        <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
-      </article>
-      <article class="card">
-        <h3><a href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">AI Resume Critique Agent</a></h3>
+        <div class="chip">Python</div><div class="chip">Google Sheets</div>
+      </article>://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">AI Resume Critique Agent</a></h3>
         <p class="date">May – June 2025</p>
         <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
@@ -183,7 +142,7 @@
 
   <section id="blog">
     <h2>Blog</h2>
-    <p class="lead">Point this to your Dev.to, Medium, or GitHub Discussions; or keep it simple and write markdown posts in a <code>/posts</code> folder and link them here.</p>
+    <p class="lead">Coming soon.</p>
   </section>
 
   <section id="contact">
