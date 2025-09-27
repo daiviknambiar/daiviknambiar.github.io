@@ -45,6 +45,15 @@
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
+    /* Career Journey timeline */
+    .journey{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+    .step{position:relative}
+    .step::after{content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--ink-dim)}
+    .step:last-child::after{display:none}
+    .card .logo{height:28px;width:auto;margin-right:8px;vertical-align:middle;opacity:.9}
+    .card header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+    .subhead{font-size:18px;margin:24px 0 8px;font-weight:800}
+
     /* Project cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
     .card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
@@ -70,6 +79,7 @@
     }
   </style>
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 </head>
 <body>
   <nav class="nav">
@@ -96,6 +106,49 @@
   <section id="about">
     <h2>About</h2>
     <p class="lead">I’m a data scientist passionate about the intersections of data and business. I enjoy building fast, accessible data-driven solutions that empower decision making. With experience across SQL, Python, and machine learning, I bridge analytics and strategy to create impact.</p>
+
+    <h3 class="subhead">Career Journey</h3>
+    <div class="journey">
+      <!-- Education -->
+      <article class="card step">
+        <header>
+          <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="UNC Charlotte Sports Analytics"><img class="logo" src="Charlotte_49ers_logo.svg" alt="UNC Charlotte logo"></a>
+          <h3>University of North Carolina at Charlotte — B.S. Data Science</h3>
+        </header>
+        <p class="date">May 2026</p>
+        <p>Concentrations: Artificial Intelligence, Economics, Sports Analytics • GPA: 3.7/4.0</p>
+      </article>
+
+      <!-- Compass Group -->
+      <article class="card step">
+        <header>
+          <a href="https://www.compass-usa.com/" target="_blank" title="Compass Group"><img class="logo" src="Compass_Group.svg.png" alt="Compass Group logo"></a>
+          <h3>Compass Group — Business Intelligence & Projects Intern</h3>
+        </header>
+        <p class="date">May 2025 – Present · Charlotte, NC</p>
+        <p>Tools: SQL, Microsoft Dataverse, Power Apps, Power Automate, Python, SSMS, Snowflake</p>
+      </article>
+
+      <!-- Elevate -->
+      <article class="card step">
+        <header>
+          <a href="https://www.oneelevate.com/" target="_blank" title="Elevate"><img class="logo" src="elevate-secondary_blk_SMALL.png" alt="Elevate logo"></a>
+          <h3>Elevate — Data Associate</h3>
+        </header>
+        <p class="date">Apr 2024 – May 2025 · Charlotte, NC</p>
+        <p>Tools: Excel, Power Query, Python, Web Scraping</p>
+      </article>
+
+      <!-- Niner Stats -->
+      <article class="card step">
+        <header>
+          <a href="https://sportsanalytics.charlotte.edu/about-us/sports-analytics-club/" target="_blank" title="Niner Stats Program"><img class="logo" src="Niner_Stats.jpg" alt="Niner Stats logo"></a>
+          <h3>Niner Stats — Basketball Analytics Intern</h3>
+        </header>
+        <p class="date">Aug 2024 – Mar 2024 · UNC Charlotte</p>
+        <p>Tools: Python, Google Sheets</p>
+      </article>
+    </div>
   </section>
 
   <section id="projects">
@@ -108,7 +161,7 @@
         <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
       </article>
       <article class="card">
-        <h3>AI Resume Critique Agent</h3>
+        <h3><a href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">AI Resume Critique Agent</a></h3>
         <p class="date">May – June 2025</p>
         <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
@@ -120,7 +173,7 @@
         <div class="chip">Python</div><div class="chip">Streamlit</div>
       </article>
       <article class="card">
-        <h3>Carolina Hurricanes Analytics Challenge</h3>
+        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">Carolina Hurricanes Sports Business Analytics Challenge</a></h3>
         <p class="date">March 2024</p>
         <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
         <div class="chip">Python</div><div class="chip">Tableau</div>
