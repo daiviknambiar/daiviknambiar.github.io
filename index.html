@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daivik Nambiar</title>
+  <title>Daivik Nambiar's Web Portfolio</title>
   <meta name="description" content="Personal portfolio" />
 
   <!-- Fonts -->
@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Prism.js for syntax highlighting -->
+  <!-- Prism.js -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
@@ -19,23 +19,33 @@
   <style>
     :root{
       --bg: linear-gradient(145deg, rgb(48, 207, 208), rgb(51, 8, 103));
+      --page-bg: linear-gradient(180deg, #fdfdfd 0%, #f6f8fa 100%);
       --ink:#2a2f36;
       --ink-dim:#4d5560;
-      --paper:#ffffff;
       --accent:#2d6cdf;
       --nav:#eef2f6;
+      --card-bg:#f9fafc;
+      --card-border:#e1e4e8;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);scroll-behavior:smooth}
+    html,body{
+      margin:0;
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      scroll-behavior:smooth;
+      background:var(--page-bg);
+    }
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Top nav */
+    /* Nav */
     .nav{
       position:sticky;top:0;z-index:10;
       display:grid;grid-template-columns:1fr auto 1fr;
       align-items:center;gap:12px;
-      height:64px;padding:0 20px;background:var(--nav);border-bottom:1px solid #d8e1ea;
+      height:64px;padding:0 20px;background:var(--nav);
+      border-bottom:1px solid #d8e1ea;
+      backdrop-filter: blur(6px);
     }
     .brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;justify-self:start;color:#2a2f36}
     .nav-center{justify-self:center;display:flex;gap:24px}
@@ -43,7 +53,7 @@
     .nav a{color:#2a2f36;font-weight:600}
 
     /* Hero */
-    .hero{background: var(--bg);color:#fff;position:relative;overflow:hidden}
+    .hero{background: var(--bg);color:#fff}
     .hero-inner{
       max-width:1100px;margin:0 auto;padding:64px 20px;min-height:72vh;
       display:grid;grid-template-columns: 1.1fr 0.9fr;align-items:center;gap:32px;
@@ -64,33 +74,24 @@
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
-    /* Career Journey */
-    .journey{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
-    .card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease, background .2s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.12)}
+    /* Journey + Projects */
+    .journey,.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+    .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+      transition:transform .15s ease,box-shadow .15s ease, background .2s ease;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.12)}
+
     .card header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
     .card .logo{height:28px;width:auto;opacity:.95}
     .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 10px}
-    .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
+    .chip{display:inline-block;background:#d0ddff;color:#1b2d6b;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
 
-    /* Brand backgrounds */
-    .company-unc{background:#e6f3ed;border-color:#cde6db}
-    .company-unc:hover{background:#d3e9de}
-    .company-compass{background:#fff7e6;border-color:#ffe0b3}
-    .company-compass:hover{background:#ffeacc}
-    .company-elevate{background:#f5f5f5;border-color:#e0e0e0}
-    .company-elevate:hover{background:#ebebeb}
-    .company-niner{background:#e6f3ed;border-color:#cde6db}
-    .company-niner:hover{background:#d3e9de}
-
-    /* Projects */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
-    .card h3{margin:0 0 4px;font-size:18px}
-
-    /* Chips */
-    .chip{display:inline-block;background:#d6e4ff;color:#1d3a8a;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
-
-    /* Buttons */
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center}
     .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:10px 14px;border-radius:8px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
@@ -110,15 +111,12 @@
     }
   </style>
 
-  <!-- Font Awesome (for GitHub/LinkedIn icons) -->
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-
-  <!-- Favicon 👋 -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 </head>
 <body>
+  <!-- NAV -->
   <nav class="nav">
-    <a class="brand" href="#home">Daivik Nambiar's Web Portfolio</a>
+    <a class="brand" href="#home">Daivik Nambiar</a>
     <div class="nav-center">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -126,15 +124,15 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="social-icons">
-      <a href="https://github.com/daiviknambiar" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/daiviknambiar/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/daiviknambiar" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/daiviknambiar/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header id="home" class="hero">
     <div class="hero-inner">
-      <div class="hero-left">
+      <div>
         <h1 class="name">DAIVIK NAMBIAR</h1>
         <p class="tag">DATA SCIENTIST</p>
       </div>
@@ -156,30 +154,6 @@ print(hello())
   <section id="about">
     <h2>About</h2>
     <p class="lead">I’m a data scientist passionate about the intersections of data and business. I enjoy building fast, accessible data-driven solutions that empower decision making. With experience across SQL, Python, and machine learning, I bridge analytics and strategy to create impact.</p>
-
-    <h3 class="subhead">Career Journey</h3>
-    <div class="journey">
-      <article class="card company-unc">
-        <header><img class="logo" src="Charlotte_49ers_logo.svg" alt="UNC Charlotte logo"><h3>UNC Charlotte — B.S. Data Science</h3></header>
-        <p class="date">May 2026</p><p>Concentrations: AI, Economics, Sports Analytics</p>
-        <div class="chip">UNC Charlotte</div><div class="chip">Data Science</div>
-      </article>
-      <article class="card company-compass">
-        <header><img class="logo" src="Compass_Group.svg.png" alt="Compass Group logo"><h3>Compass Group — BI & Projects Intern</h3></header>
-        <p class="date">May 2025 – Present · Charlotte, NC</p>
-        <div class="chip">SQL</div><div class="chip">Dataverse</div><div class="chip">Power Apps</div><div class="chip">Power Automate</div><div class="chip">Python</div><div class="chip">SSMS</div><div class="chip">Snowflake</div>
-      </article>
-      <article class="card company-elevate">
-        <header><img class="logo" src="elevate-secondary_blk_SMALL.png" alt="Elevate logo"><h3>Elevate — Data Associate</h3></header>
-        <p class="date">Apr 2024 – May 2025 · Charlotte, NC</p>
-        <div class="chip">Excel</div><div class="chip">Power Query</div><div class="chip">Python</div><div class="chip">Web Scraping</div><div class="chip">Power BI</div>
-      </article>
-      <article class="card company-niner">
-        <header><img class="logo" src="Niner_Stats.jpg" alt="Niner Stats logo"><h3>Niner Stats — Basketball Analytics Intern</h3></header>
-        <p class="date">Aug 2024 – Mar 2024 · UNC Charlotte</p>
-        <div class="chip">Python</div><div class="chip">Google Sheets</div>
-      </article>
-    </div>
   </section>
 
   <!-- PROJECTS -->
@@ -189,53 +163,33 @@ print(hello())
       <article class="card">
         <h3>NBA News Web Scraper App</h3>
         <p class="date">September 2025</p>
-        <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
-        <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a></div>
+        <p>Scrapes NBA updates and uses an LLM for an intelligent, searchable dashboard.</p>
+        <div class="chip">Python</div><div class="chip">Streamlit</div>
+        <div class="cta"><a class="btn outline" href="#">View Project</a></div>
       </article>
       <article class="card">
         <h3>AI Resume Critique Agent</h3>
         <p class="date">May – June 2025</p>
-        <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
-        <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a></div>
-      </article>
-      <article class="card">
-        <h3>Charlotte Club Basketball Stats App</h3>
-        <p class="date">April 2024</p>
-        <p>Built a Streamlit web app to automate team stats tracking, reducing manual entry by ~2 hours per game and enabling real-time insights for coaches.</p>
-        <div class="chip">Python</div><div class="chip">Streamlit</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a></div>
-      </article>
-      <article class="card">
-        <h3>Carolina Hurricanes Sports Business Analytics Challenge</h3>
-        <p class="date">March 2024</p>
-        <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
-        <div class="chip">Python</div><div class="chip">Tableau</div>
-        <div class="cta"><a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a></div>
+        <p>Evaluates resumes against job descriptions using cosine similarity + ML.</p>
+        <div class="chip">Python</div><div class="chip">Scikit-learn</div>
+        <div class="cta"><a class="btn outline" href="#">View Project</a></div>
       </article>
     </div>
-  </section>
-
-  <!-- BLOG -->
-  <section id="blog">
-    <h2>Blog</h2>
-    <p class="lead">Coming soon.</p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
-    <p class="lead">Open to new opportunities and collaborations. The easiest way to reach me is via email or LinkedIn.</p>
+    <p class="lead">Open to new opportunities. Reach me by email or LinkedIn.</p>
     <div class="cta">
       <a class="btn" href="mailto:you@example.com">Email me</a>
-      <a class="btn outline" href="https://github.com/daiviknambiar">GitHub</a>
-      <a class="btn outline" href="https://www.linkedin.com/in/daiviknambiar/">LinkedIn</a>
+      <a class="btn outline" href="#">GitHub</a>
+      <a class="btn outline" href="#">LinkedIn</a>
     </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Daivik Nambiar. Built with plain HTML/CSS. Hosted on GitHub Pages.
+    © <span id="year"></span> Daivik Nambiar
   </footer>
 
   <script>
