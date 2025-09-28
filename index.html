@@ -6,12 +6,10 @@
   <title>Daivik's Web Portfolio</title>
   <meta name="description" content="Personal portfolio" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Prism.js for syntax highlighting -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
@@ -25,9 +23,8 @@
       --accent:#2d6cdf;
       --nav:#eef2f6;
 
-      /* Card contrast tweaks */
-      --card-bg:#f3f6fb;        /* grayer than white for contrast */
-      --card-border:#d9e1ec;    /* slightly stronger border */
+      --card-bg:#f3f6fb;        
+      --card-border:#d9e1ec;
       --card-shadow: 0 6px 18px rgba(20, 32, 54, .10);
     }
 
@@ -47,7 +44,7 @@
       position:sticky;top:0;z-index:10;
       display:grid;grid-template-columns:1fr auto 1fr;
       align-items:center;gap:12px;
-      height:64px;padding:0 20px;background:rgba(238,242,246,.9); /* slight translucency */
+      height:64px;padding:0 20px;background:rgba(238,242,246,.9); 
       border-bottom:1px solid #d8e1ea;
       backdrop-filter: blur(6px);
     }
@@ -56,27 +53,26 @@
     .social-icons{justify-self:end;display:flex;gap:12px;font-size:22px}
     .nav a{color:#2a2f36;font-weight:600}
 
-    /* Hero */
+  
     .hero{background: var(--hero-bg);color:#fff;position:relative;overflow:hidden}
     .hero-inner{
       max-width:1100px;margin:0 auto;padding:64px 20px;min-height:72vh;
       display:grid;grid-template-columns: 1.1fr 0.9fr;align-items:center;gap:32px;
     }
     .name{font-size:clamp(32px,7vw,64px);font-weight:800;margin:0 0 10px}
-    /* Smaller tagline to fit one line on desktop */
     .tag{
       font-size:clamp(12px,1.8vw,20px);
       font-weight:800;
       letter-spacing:.06em;
       margin:0;
       color:#eaf0ff;
-      white-space:nowrap; /* keep on one line on wide screens */
+      white-space:nowrap; 
     }
     @media (max-width:700px){
-      .tag{white-space:normal;} /* allow wrap on small screens */
+      .tag{white-space:normal;}
     }
 
-    /* Code window */
+
     .code-window{
       background:#1e1e2e;border-radius:12px;overflow:hidden;
       box-shadow:0 12px 40px rgba(0,0,0,.35);max-width:520px;justify-self:end;
@@ -93,7 +89,7 @@
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
-    /* Cards (journey & projects share) */
+
     .journey,.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
     .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .card{
@@ -111,7 +107,7 @@
     .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 10px}
     .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
 
-    /* Brand-tinted journey backgrounds (kept) */
+
     .company-unc{background:#e6f3ed;border-color:#cde6db}
     .company-unc:hover{background:#d3e9de}
     .company-compass{background:#fff5e6;border-color:#ffdfb3}
@@ -144,10 +140,10 @@
     }
   </style>
 
-  <!-- Font Awesome (for GitHub/LinkedIn icons) -->
+
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 
-  <!-- Favicon 👋 -->
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -165,7 +161,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+
   <header id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-left">
@@ -259,7 +255,6 @@ print(introduction())
   <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
-    <p class="lead">Open to new opportunities and collaborations. The easiest way to reach me is via email or LinkedIn.</p>
     <div class="cta">
       <a class="btn" href="mailto:you@example.com">Email me</a>
       <a class="btn outline" href="https://github.com/daiviknambiar">GitHub</a>
@@ -268,7 +263,7 @@ print(introduction())
   </section>
 
   <footer>
-    © <span id="year"></span> Daivik Nambiar. Built with plain HTML/CSS. Hosted on GitHub Pages.
+    © <span id="year"></span> Daivik Nambiar. Built with HTML/CSS. Hosted on GitHub Pages.
   </footer>
 
   <script>
