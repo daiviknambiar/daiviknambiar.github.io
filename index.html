@@ -247,14 +247,15 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a>
-          <button class="btn more-details"
+          <a class="btn more-details"
+            href="https://daiviknambiar.github.io/#projects/nba-news-scraper"
             data-modal-title="NBA News Web Scraper App"
             data-modal-desc="Built a Streamlit app that scrapes NBA.com/news, normalizes story metadata, and enriches with LLM summaries + tags for fast filtering. Deployed on Modal with secrets mgmt and dark-theme config.\n\nHighlights:\n• Custom scraper & HTML parsing\n• JSON → pandas pipelines\n• LLM summarization & semantic search\n• Production deploy via Modal"
             data-modal-images='[
               "images/nba-scraper-1.png",
               "images/nba-scraper-2.png",
               "images/nba-scraper-3.png"
-            ]'>More details</button>
+            ]'>More details</a>
         </div>
       </article>
 
@@ -265,14 +266,15 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a>
-          <button class="btn more-details"
+          <a class="btn more-details"
+            href="https://daiviknambiar.github.io/#projects/ai-resume-critique"
             data-modal-title="AI Resume Critique Agent"
             data-modal-desc="End-to-end app that scores resume ↔ JD fit using TF-IDF + cosine similarity, then explains gaps with LLM prompts and concrete bullet rewrites.\n\nStack:\n• Scikit-learn vectorization\n• Similarity scoring & thresholds\n• Prompted suggestions\n• Streamlit UI & file upload"
             data-modal-images='[
               "images/resume-agent-1.png",
               "images/resume-agent-2.png",
               "images/resume-agent-3.png"
-            ]'>More details</button>
+            ]'>More details</a>
         </div>
       </article>
 
@@ -283,13 +285,14 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Streamlit</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a>
-          <button class="btn more-details"
+          <a class="btn more-details"
+            href="https://daiviknambiar.github.io/#projects/charlotte-club-stats"
             data-modal-title="Charlotte Club Basketball Stats App"
             data-modal-desc="Game flow capture, advanced box score generation, and live visuals. Data entry optimized for mobile; exports to CSV/Sheets for staff workflows."
             data-modal-images='[
               "images/clubstats-1.png",
               "images/clubstats-2.png"
-            ]'>More details</button>
+            ]'>More details</a>
         </div>
       </article>
 
@@ -300,14 +303,15 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Tableau</div>
         <div class="cta">
           <a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a>
-          <button class="btn more-details"
+          <a class="btn more-details"
+            href="https://daiviknambiar.github.io/#projects/canes-analytics"
             data-modal-title="Carolina Hurricanes Analytics"
             data-modal-desc="Segmentation, price sensitivity, and promo ROI modeling; delivered an executive readout with actionable recommendations."
             data-modal-images='[
               "images/canes-1.png",
               "images/canes-2.png",
               "images/canes-3.png"
-            ]'>More details</button>
+            ]'>More details</a>
         </div>
       </article>
     </div>
@@ -351,10 +355,8 @@ print(introduction())
   </div>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== Project Modal Logic =====
     const backdrop = document.getElementById('projectModalBackdrop');
     const closeBtn = document.getElementById('projectModalClose');
     const titleEl = document.getElementById('projectModalTitle');
@@ -387,6 +389,7 @@ print(introduction())
       backdrop.setAttribute('aria-hidden', 'true');
       document.removeEventListener('keydown', onKey);
       backdrop.removeEventListener('click', onBackdrop);
+      if (location.hash.startsWith('#projects/')) history.replaceState(null, '', '#projects');
       if (lastFocused) lastFocused.focus();
     }
 
@@ -438,19 +441,33 @@ print(introduction())
     }
 
     document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.more-details');
-      if (!btn) return;
-
-      const title = btn.getAttribute('data-modal-title') || '';
-      const desc  = btn.getAttribute('data-modal-desc')  || '';
+      const link = e.target.closest('.more-details');
+      if (!link) return;
+      e.preventDefault();
+      const title = link.getAttribute('data-modal-title') || '';
+      const desc  = link.getAttribute('data-modal-desc')  || '';
       let imgs = [];
-      try {
-        const raw = btn.getAttribute('data-modal-images') || '[]';
-        imgs = JSON.parse(raw);
-      } catch (_) {}
-
+      try { imgs = JSON.parse(link.getAttribute('data-modal-images') || '[]'); } catch {}
+      const hash = new URL(link.href).hash || '#projects';
+      history.replaceState(null, '', hash);
       openModal({ title, desc, imgs });
     });
+
+    function openFromHash(){
+      const hash = location.hash;
+      if (!hash.startsWith('#projects/')) return;
+      const links = [...document.querySelectorAll('a.more-details')];
+      const match = links.find(a => new URL(a.href).hash === hash);
+      if (!match) return;
+      const title = match.getAttribute('data-modal-title') || '';
+      const desc  = match.getAttribute('data-modal-desc')  || '';
+      let imgs = [];
+      try { imgs = JSON.parse(match.getAttribute('data-modal-images') || '[]'); } catch {}
+      openModal({ title, desc, imgs });
+    }
+
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
 
     closeBtn.addEventListener('click', closeModal);
   </script>
