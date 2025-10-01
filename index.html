@@ -17,13 +17,13 @@
   <style>
     :root{
       --hero-bg: linear-gradient(145deg, rgb(48, 207, 208), rgb(51, 8, 103));
-      --page-bg: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%); /* modern white */
+      --page-bg: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
       --ink:#2a2f36;
       --ink-dim:#4d5560;
       --accent:#2d6cdf;
       --nav:#eef2f6;
 
-      --card-bg:#f3f6fb;        
+      --card-bg:#f3f6fb;
       --card-border:#d9e1ec;
       --card-shadow: 0 6px 18px rgba(20, 32, 54, .10);
     }
@@ -39,12 +39,11 @@
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Top nav */
     .nav{
       position:sticky;top:0;z-index:10;
       display:grid;grid-template-columns:1fr auto 1fr;
       align-items:center;gap:12px;
-      height:64px;padding:0 20px;background:rgba(238,242,246,.9); 
+      height:64px;padding:0 20px;background:rgba(238,242,246,.9);
       border-bottom:1px solid #d8e1ea;
       backdrop-filter: blur(6px);
     }
@@ -53,7 +52,6 @@
     .social-icons{justify-self:end;display:flex;gap:12px;font-size:22px}
     .nav a{color:#2a2f36;font-weight:600}
 
-  
     .hero{background: var(--hero-bg);color:#fff;position:relative;overflow:hidden}
     .hero-inner{
       max-width:1100px;margin:0 auto;padding:64px 20px;min-height:72vh;
@@ -66,12 +64,9 @@
       letter-spacing:.06em;
       margin:0;
       color:#eaf0ff;
-      white-space:nowrap; 
+      white-space:nowrap;
     }
-    @media (max-width:700px){
-      .tag{white-space:normal;}
-    }
-
+    @media (max-width:700px){ .tag{white-space:normal;} }
 
     .code-window{
       background:#1e1e2e;border-radius:12px;overflow:hidden;
@@ -84,11 +79,9 @@
     .code-body{margin:0;padding:16px;background:#1e1e2e;overflow-x:auto}
     .code-body code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;font-size:14px}
 
-    /* Sections */
     section{padding:64px 20px;max-width:1024px;margin:0 auto}
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
-
 
     .journey,.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
     .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -107,7 +100,6 @@
     .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 10px}
     .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
 
-
     .company-unc{background:#e6f3ed;border-color:#cde6db}
     .company-unc:hover{background:#d3e9de}
     .company-compass{background:#fff5e6;border-color:#ffdfb3}
@@ -117,17 +109,14 @@
     .company-niner{background:#e6f3ed;border-color:#cde6db}
     .company-niner:hover{background:#d3e9de}
 
-    /* Chips */
     .chip{display:inline-block;background:#d6e4ff;color:#1d3a8a;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
 
-    /* Buttons */
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center}
     .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:10px 14px;border-radius:8px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
 
     footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
 
-    /* Responsive */
     @media (max-width:900px){
       .hero-inner{grid-template-columns:1fr;min-height:64vh}
       .code-window{justify-self:stretch;max-width:none}
@@ -138,12 +127,49 @@
       .nav-center{justify-self:center;flex-wrap:wrap}
       .social-icons{justify-self:center}
     }
+
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(10,16,28,.55);
+      display:none;align-items:center;justify-content:center;
+      padding:24px;z-index:1000;
+    }
+    .modal-backdrop.show{display:flex;animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    .modal{
+      background:#fff;border-radius:16px;max-width:960px;width:100%;
+      box-shadow:0 20px 60px rgba(0,0,0,.28);
+      border:1px solid #e5eaf1;overflow:hidden;
+    }
+    .modal header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 18px;border-bottom:1px solid #eef2f6;background:#fbfdff
+    }
+    .modal h3{margin:0;font-size:20px}
+    .modal .close{
+      appearance:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:#718096;
+    }
+    .modal .content{
+      display:grid;grid-template-columns:1fr 1.1fr;gap:18px;padding:18px;
+    }
+    .modal .desc{color:#4d5560;white-space:pre-wrap}
+    .modal .gallery{
+      display:grid;grid-template-rows:auto 70px;gap:8px;
+    }
+    .modal .hero-img{
+      width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid #e5eaf1;
+    }
+    .thumbs{display:flex;gap:8px;overflow:auto}
+    .thumbs img{
+      width:100px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;
+    }
+    .thumbs img.active{border-color:var(--accent)}
+    @media (max-width:800px){
+      .modal .content{grid-template-columns:1fr}
+    }
   </style>
 
-
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-
-
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -160,7 +186,6 @@
       <a href="https://www.linkedin.com/in/daiviknambiar/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
   </nav>
-
 
   <header id="home" class="hero">
     <div class="hero-inner">
@@ -220,28 +245,70 @@ print(introduction())
         <p class="date">September 2025</p>
         <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a></div>
+        <div class="cta">
+          <a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a>
+          <button class="btn more-details"
+            data-modal-title="NBA News Web Scraper App"
+            data-modal-desc="Built a Streamlit app that scrapes NBA.com/news, normalizes story metadata, and enriches with LLM summaries + tags for fast filtering. Deployed on Modal with secrets mgmt and dark-theme config.\n\nHighlights:\n• Custom scraper & HTML parsing\n• JSON → pandas pipelines\n• LLM summarization & semantic search\n• Production deploy via Modal"
+            data-modal-images='[
+              "images/nba-scraper-1.png",
+              "images/nba-scraper-2.png",
+              "images/nba-scraper-3.png"
+            ]'>More details</button>
+        </div>
       </article>
+
       <article class="card">
         <h3>AI Resume Critique Agent</h3>
         <p class="date">May – June 2025</p>
         <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
         <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a></div>
+        <div class="cta">
+          <a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a>
+          <button class="btn more-details"
+            data-modal-title="AI Resume Critique Agent"
+            data-modal-desc="End-to-end app that scores resume ↔ JD fit using TF-IDF + cosine similarity, then explains gaps with LLM prompts and concrete bullet rewrites.\n\nStack:\n• Scikit-learn vectorization\n• Similarity scoring & thresholds\n• Prompted suggestions\n• Streamlit UI & file upload"
+            data-modal-images='[
+              "images/resume-agent-1.png",
+              "images/resume-agent-2.png",
+              "images/resume-agent-3.png"
+            ]'>More details</button>
+        </div>
       </article>
+
       <article class="card">
         <h3>Charlotte Club Basketball Stats App</h3>
         <p class="date">April 2024</p>
         <p>Built a Streamlit web app to automate team stats tracking, reducing manual entry by ~2 hours per game and enabling real-time insights for coaches.</p>
         <div class="chip">Python</div><div class="chip">Streamlit</div>
-        <div class="cta"><a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a></div>
+        <div class="cta">
+          <a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a>
+          <button class="btn more-details"
+            data-modal-title="Charlotte Club Basketball Stats App"
+            data-modal-desc="Game flow capture, advanced box score generation, and live visuals. Data entry optimized for mobile; exports to CSV/Sheets for staff workflows."
+            data-modal-images='[
+              "images/clubstats-1.png",
+              "images/clubstats-2.png"
+            ]'>More details</button>
+        </div>
       </article>
+
       <article class="card">
-        <h3>Carolina Hurricanes Sports Business Analytics Challenge</h3>
+        <h3>Carolina Hurricanes Business Analytics Challenge</h3>
         <p class="date">March 2024</p>
         <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
         <div class="chip">Python</div><div class="chip">Tableau</div>
-        <div class="cta"><a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a></div>
+        <div class="cta">
+          <a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a>
+          <button class="btn more-details"
+            data-modal-title="Carolina Hurricanes Analytics"
+            data-modal-desc="Segmentation, price sensitivity, and promo ROI modeling; delivered an executive readout with actionable recommendations."
+            data-modal-images='[
+              "images/canes-1.png",
+              "images/canes-2.png",
+              "images/canes-3.png"
+            ]'>More details</button>
+        </div>
       </article>
     </div>
   </section>
@@ -266,8 +333,126 @@ print(introduction())
     © <span id="year"></span> Daivik Nambiar. Built with HTML/CSS. Hosted on GitHub Pages.
   </footer>
 
+  <!-- ===== Modal  ===== -->
+  <div class="modal-backdrop" id="projectModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+      <header>
+        <h3 id="projectModalTitle">Project</h3>
+        <button class="close" id="projectModalClose" aria-label="Close">×</button>
+      </header>
+      <div class="content">
+        <div class="desc" id="projectModalDesc">Description goes here.</div>
+        <div class="gallery">
+          <img class="hero-img" id="projectModalHero" src="" alt="Project image">
+          <div class="thumbs" id="projectModalThumbs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Project Modal Logic =====
+    const backdrop = document.getElementById('projectModalBackdrop');
+    const closeBtn = document.getElementById('projectModalClose');
+    const titleEl = document.getElementById('projectModalTitle');
+    const descEl = document.getElementById('projectModalDesc');
+    const heroEl = document.getElementById('projectModalHero');
+    const thumbsEl = document.getElementById('projectModalThumbs');
+
+    let lastFocused = null;
+    let images = [];
+    let current = 0;
+
+    function openModal({ title, desc, imgs }) {
+      lastFocused = document.activeElement;
+      titleEl.textContent = title || 'Project';
+      descEl.textContent = desc || '';
+      images = Array.isArray(imgs) && imgs.length ? imgs : [];
+      current = 0;
+
+      renderGallery();
+      backdrop.classList.add('show');
+      backdrop.removeAttribute('aria-hidden');
+      closeBtn.focus();
+
+      document.addEventListener('keydown', onKey);
+      backdrop.addEventListener('click', onBackdrop);
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('show');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', onKey);
+      backdrop.removeEventListener('click', onBackdrop);
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function onBackdrop(e){
+      if (e.target === backdrop) closeModal();
+    }
+
+    function onKey(e){
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
+    }
+
+    function step(dir){
+      if (!images.length) return;
+      current = (current + dir + images.length) % images.length;
+      heroEl.src = images[current];
+      updateActiveThumb();
+    }
+
+    function renderGallery(){
+      if (images.length){
+        heroEl.src = images[0];
+        heroEl.alt = 'Project image ' + 1;
+      } else {
+        heroEl.src = '';
+        heroEl.alt = 'No image';
+      }
+
+      thumbsEl.innerHTML = '';
+      images.forEach((src, idx) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Thumbnail ' + (idx+1);
+        if (idx === 0) img.classList.add('active');
+        img.addEventListener('click', () => {
+          current = idx;
+          heroEl.src = images[current];
+          updateActiveThumb();
+        });
+        thumbsEl.appendChild(img);
+      });
+    }
+
+    function updateActiveThumb(){
+      [...thumbsEl.children].forEach((el, i) => {
+        el.classList.toggle('active', i === current);
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.more-details');
+      if (!btn) return;
+
+      const title = btn.getAttribute('data-modal-title') || '';
+      const desc  = btn.getAttribute('data-modal-desc')  || '';
+      let imgs = [];
+      try {
+        const raw = btn.getAttribute('data-modal-images') || '[]';
+        imgs = JSON.parse(raw);
+      } catch (_) {}
+
+      openModal({ title, desc, imgs });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
   </script>
 </body>
 </html>
