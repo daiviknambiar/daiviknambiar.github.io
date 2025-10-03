@@ -94,35 +94,41 @@
     .modal .content{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;padding:18px;}
     .modal .desc{color:#4d5560;white-space:pre-line}
     .modal .gallery{display:grid;grid-template-rows:auto 70px;gap:8px;min-width:0;}
-    /* Fit images better */
     .modal .hero-img{
       width:100%;
       height:auto;
       aspect-ratio:16/9;
-      object-fit:contain;          
-      background:#0b1220;          
+      object-fit:contain;
+      background:#0b1220;
       border-radius:12px;
       border:1px solid #e5eaf1;
-      max-height:70vh;            
+      max-height:70vh;
       cursor:zoom-in;
     }
     .thumbs{display:flex;gap:8px;overflow:auto}
     .thumbs img{
-      width:100px;
-      height:64px;
-      aspect-ratio:25/16;
-      object-fit:cover;
-      border-radius:8px;
-      border:2px solid transparent;
-      cursor:pointer;
-      flex:0 0 auto;
+      width:100px;height:64px;aspect-ratio:25/16;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;flex:0 0 auto;
     }
     .thumbs img.active{border-color:var(--accent)}
-    @media (max-width:800px){
-      .modal .content{grid-template-columns:1fr}
-      .modal .hero-img{max-height:40vh}
-    }
+    @media (max-width:800px){.modal .content{grid-template-columns:1fr}.modal .hero-img{max-height:40vh}}
 
+    /* Career Journey logo sizing (fix) */
+    .journey .card header{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .journey .card header .logo{
+      width:40px;
+      height:40px;
+      object-fit:contain;
+      flex-shrink:0;
+      border-radius:6px;
+      background:#fff;
+      padding:2px;
+    }
+    .journey .card header h3{line-height:1.2}
+    
     /* Fullscreen lightbox */
     .fullscreen-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:2000}
     .fullscreen-backdrop.show{display:flex}
@@ -288,7 +294,6 @@ print(introduction())
       </header>
       <div class="content">
         <div class="desc" id="projectModalDesc">Description goes here.</div>
-        <!-- give gallery an id so we can hide it when no images -->
         <div class="gallery" id="projectModalGallery">
           <img class="hero-img" id="projectModalHero" src="" alt="Project image">
           <div class="thumbs" id="projectModalThumbs"></div>
@@ -332,7 +337,6 @@ print(introduction())
       images = Array.isArray(imgs) && imgs.length ? imgs : [];
       current = 0;
 
-      // Hide gallery entirely when no images
       if (!images.length) {
         galleryEl.style.display = 'none';
       } else {
