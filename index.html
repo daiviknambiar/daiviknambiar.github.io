@@ -83,94 +83,54 @@
     section h2{margin:0 0 16px;font-size:clamp(22px,4.4vw,36px)}
     .lead{color:var(--ink-dim);max-width:70ch}
 
-    .journey,.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
-    .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{
-      background:var(--card-bg);
-      border:1px solid var(--card-border);
-      border-radius:16px;
-      padding:18px;
-      box-shadow:var(--card-shadow);
-      transition:transform .15s ease,box-shadow .15s ease, background .2s ease;
-    }
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+    .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:18px;box-shadow:var(--card-shadow);transition:transform .15s ease,box-shadow .15s ease, background .2s ease;}
     .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,32,54,.16)}
-    .card header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-    .card .logo{height:28px;width:auto;opacity:.95}
     .card h3{margin:0 0 4px;font-size:18px}
     .date{font-size:14px;font-weight:600;color:var(--ink-dim);margin:0 0 10px}
-    .subhead{font-size:18px;margin:20px 0 6px;font-weight:800}
-
-    .company-unc{background:#e6f3ed;border-color:#cde6db}
-    .company-unc:hover{background:#d3e9de}
-    .company-compass{background:#fff5e6;border-color:#ffdfb3}
-    .company-compass:hover{background:#ffeacc}
-    .company-elevate{background:#f2f3f5;border-color:#dedfe3}
-    .company-elevate:hover{background:#eaebee}
-    .company-niner{background:#e6f3ed;border-color:#cde6db}
-    .company-niner:hover{background:#d3e9de}
-
     .chip{display:inline-block;background:#d6e4ff;color:#1d3a8a;padding:2px 10px;border-radius:999px;font-size:12px;margin:4px 4px 0 0}
-
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center}
     .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:10px 14px;border-radius:8px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
 
     footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
 
-    @media (max-width:900px){
-      .hero-inner{grid-template-columns:1fr;min-height:64vh}
-      .code-window{justify-self:stretch;max-width:none}
-    }
-    @media (max-width:720px){
-      .nav{grid-template-columns:1fr;gap:8px;height:auto;padding-bottom:8px}
-      .brand{justify-self:center}
-      .nav-center{justify-self:center;flex-wrap:wrap}
-      .social-icons{justify-self:center}
-    }
-
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(10,16,28,.55);
-      display:none;align-items:center;justify-content:center;
-      padding:24px;z-index:1000;
-    }
+    .modal-backdrop{position:fixed;inset:0;background:rgba(10,16,28,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:1000;}
     .modal-backdrop.show{display:flex;animation:fadeIn .18s ease-out}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    .modal{
-      background:#fff;border-radius:16px;max-width:960px;width:100%;
-      box-shadow:0 20px 60px rgba(0,0,0,.28);
-      border:1px solid #e5eaf1;overflow:hidden;
-    }
-    .modal header{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:16px 18px;border-bottom:1px solid #eef2f6;background:#fbfdff
-    }
+    .modal{background:#fff;border-radius:16px;max-width:960px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.28);border:1px solid #e5eaf1;overflow:hidden;}
+    .modal header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #eef2f6;background:#fbfdff}
     .modal h3{margin:0;font-size:20px}
-    .modal .close{
-      appearance:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:#718096;
-    }
-    .modal .content{
-      display:grid;grid-template-columns:1fr 1.1fr;gap:18px;padding:18px;
-    }
-    .modal .desc{color:#4d5560;white-space:pre-wrap}
-    .modal .gallery{
-      display:grid;grid-template-rows:auto 70px;gap:8px;
-    }
-    .modal .hero-img{
-      width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid #e5eaf1;
-    }
+    .modal .close{appearance:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:#718096;}
+    .modal .content{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;padding:18px;}
+    .modal .desc{color:#4d5560;white-space:pre-line}
+    .modal .gallery{display:grid;grid-template-rows:auto 70px;gap:8px;}
+    .modal .hero-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid #e5eaf1;cursor:zoom-in;}
     .thumbs{display:flex;gap:8px;overflow:auto}
-    .thumbs img{
-      width:100px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;
-    }
+    .thumbs img{width:100px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;}
     .thumbs img.active{border-color:var(--accent)}
-    @media (max-width:800px){
-      .modal .content{grid-template-columns:1fr}
+    @media (max-width:800px){.modal .content{grid-template-columns:1fr}}
+
+    /* Fullscreen lightbox */
+    .fullscreen-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .fullscreen-backdrop.show { display: flex; }
+    .fullscreen-backdrop img {
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      cursor: zoom-out;
     }
   </style>
-
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 </head>
 <body>
   <nav class="nav">
@@ -207,7 +167,6 @@ print(introduction())
     </div>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2>About</h2>
     <p class="lead">I’m a Data Scientist passionate about the intersections of data and business. I enjoy building fast, accessible data-driven solutions that empower decision making. With experience across SQL, Python, and AI/ML, I bridge analytics and strategy to create impact.</p>
@@ -236,7 +195,6 @@ print(introduction())
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
@@ -244,39 +202,48 @@ print(introduction())
         <h3>NBA News Web Scraper App</h3>
         <p class="date">September 2025</p>
         <p>Interactive news browser that scrapes NBA updates from nba.com/news, converts raw data → JSON → dataframe, and leverages OpenAI LLM to deliver an intelligent, searchable dashboard.</p>
-        <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">AI API</div><div class="chip">BeautifulSoup</div>
+        <div class="chip">Python</div><div class="chip">Streamlit</div><div class="chip">OpenAI API</div><div class="chip">BeautifulSoup</div><div class="chip">Supabase</div><div class="chip">Modal</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/nba-streamlit-web-scraper-dashboard" target="_blank">View Project</a>
           <a class="btn more-details"
-            href="https://daiviknambiar.github.io/#projects/nba-news-scraper"
-            data-modal-title="NBA News Web Scraper App"
-            data-modal-desc="Built a Streamlit app that scrapes NBA.com/news, normalizes story metadata, and enriches with LLM summaries + tags for fast filtering. Deployed on Modal with secrets mgmt and dark-theme config.\n\nHighlights:\n• Custom scraper & HTML parsing\n• JSON → pandas pipelines\n• LLM summarization & semantic search\n• Production deploy via Modal"
-            data-modal-images='[
-              "images/nba-scraper-1.png",
-              "images/nba-scraper-2.png",
-              "images/nba-scraper-3.png"
-            ]'>More details</a>
+             href="https://daiviknambiar.github.io/#projects/nba-news-scraper"
+             data-modal-title="NBA News Web Scraper App"
+             data-modal-desc="• Built and deployed a Streamlit web app on Modal that scrapes NBA.com/news for the latest articles.\n\n• Designed a data pipeline to normalize article metadata (titles, descriptions) into a structured JSON schema.\n\n• Integrated a Large Language Model (LLM) to generate concise summaries and auto-tag articles with players, teams, and topics, enabling fast search and filtering.\n\n• Implemented topic standardization to avoid inconsistent tags and ensure clean, queryable metadata.\n\n• Showcased end-to-end skills in web scraping, data wrangling, schema design, LLM prompting, app deployment, and interactive UI development."
+             data-modal-images='[
+               "nba-scraper-excelidraw.png",
+               "nba_news_example.png",
+               "st_example_screenshot.png"
+             ]'>More details</a>
         </div>
       </article>
 
       <article class="card">
         <h3>AI Resume Critique Agent</h3>
-        <p class="date">May – June 2025</p>
+        <p class="date">May 2025 - June 2025</p>
         <p>Developed a resume evaluation tool using cosine similarity to score alignment with job descriptions, offering actionable insights for applicants.</p>
-        <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div>
+        <div class="chip">Python</div><div class="chip">Scikit-learn</div><div class="chip">OpenAI API</div><div class="chip">Streamlit</div><div class="chip">Text Embeddings</div><div class="chip">PyPDF</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/AI-Resume-Critiquer" target="_blank">View Project</a>
           <a class="btn more-details"
             href="https://daiviknambiar.github.io/#projects/ai-resume-critique"
             data-modal-title="AI Resume Critique Agent"
-            data-modal-desc="End-to-end app that scores resume ↔ JD fit using TF-IDF + cosine similarity, then explains gaps with LLM prompts and concrete bullet rewrites.\n\nStack:\n• Scikit-learn vectorization\n• Similarity scoring & thresholds\n• Prompted suggestions\n• Streamlit UI & file upload"
+            data-modal-desc="• Developed an interactive Streamlit app that analyzes resumes (PDF, TXT, DOCX) and provides AI-powered feedback on clarity, skills, and experience presentation.\n\n• Implemented document parsing with PyPDF2 and python-docx, and used OpenAI embeddings + cosine similarity to score resume–job description alignment.\n\n• Integrated LLM-based feedback (GPT-4o-mini) with custom prompts for structured, actionable recommendations tailored to specific job roles.\n\n• Designed a clean UI with resume upload, job description comparison, similarity score, and critique output, enabling users to refine their resumes for targeted applications."
             data-modal-images='[
-              "images/resume-agent-1.png",
-              "images/resume-agent-2.png",
-              "images/resume-agent-3.png"
+              "resume_critiquer1.png",
+              "resume_critiquer2.png",
+              "resume_critiquer_excelidraw.png"
             ]'>More details</a>
         </div>
       </article>
+
+      <article class="card">
+        <h3>Forbes Valuations Dashboard (Proprietary)</h3>
+        <p class="date">Dec 2024 - Feb 2025</p>
+         <p>Led research and database development on Forbes sports team valuations, conducting in-depth financial analysis and building a dynamic Power BI dashboard to uncover key trends and insights.</p>
+        <div class="chip">Power BI</div><div class="chip">Python</div><div class="chip">Excel Macros</div><div class="chip">Power Query</div>
+    </article>
+
+
 
       <article class="card">
         <h3>Charlotte Club Basketball Stats App</h3>
@@ -285,49 +252,29 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Streamlit</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a>
-          <a class="btn more-details"
-            href="https://daiviknambiar.github.io/#projects/charlotte-club-stats"
-            data-modal-title="Charlotte Club Basketball Stats App"
-            data-modal-desc="Game flow capture, advanced box score generation, and live visuals. Data entry optimized for mobile; exports to CSV/Sheets for staff workflows."
-            data-modal-images='[
-              "images/clubstats-1.png",
-              "images/clubstats-2.png"
-            ]'>More details</a>
-        </div>
       </article>
 
       <article class="card">
-        <h3>Carolina Hurricanes Business Analytics Challenge</h3>
+        <h3>Carolina Hurricanes Business Analytics Challenge (Proprietary)</h3>
         <p class="date">March 2024</p>
-        <p>First Place — Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
+        <p><b>First Place Honors - </b>Analyzed consumer behavior and built profit-optimization models, delivering recommendations to strengthen and expand the customer base.</p>
         <div class="chip">Python</div><div class="chip">Tableau</div>
         <div class="cta">
           <a class="btn outline" href="https://www.linkedin.com/feed/update/urn:li:activity:7190763304410054659/" target="_blank">View Project</a>
-          <a class="btn more-details"
-            href="https://daiviknambiar.github.io/#projects/canes-analytics"
-            data-modal-title="Carolina Hurricanes Analytics"
-            data-modal-desc="Segmentation, price sensitivity, and promo ROI modeling; delivered an executive readout with actionable recommendations."
-            data-modal-images='[
-              "images/canes-1.png",
-              "images/canes-2.png",
-              "images/canes-3.png"
-            ]'>More details</a>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- BLOG -->
   <section id="blog">
     <h2>Blog</h2>
     <p class="lead">Coming soon.</p>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="cta">
-      <a class="btn" href="mailto:you@example.com">Email me</a>
+      <a class="btn" href="mailto:nambiardaivik@gmail.com">Email me</a>
       <a class="btn outline" href="https://github.com/daiviknambiar">GitHub</a>
       <a class="btn outline" href="https://www.linkedin.com/in/daiviknambiar/">LinkedIn</a>
     </div>
@@ -337,7 +284,6 @@ print(introduction())
     © <span id="year"></span> Daivik Nambiar. Built with HTML/CSS. Hosted on GitHub Pages.
   </footer>
 
-  <!-- ===== Modal  ===== -->
   <div class="modal-backdrop" id="projectModalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
       <header>
@@ -354,6 +300,11 @@ print(introduction())
     </div>
   </div>
 
+  <!-- Fullscreen lightbox container -->
+  <div class="fullscreen-backdrop" id="fullscreenBackdrop">
+    <img id="fullscreenImg" src="" alt="Enlarged project image">
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -364,6 +315,9 @@ print(introduction())
     const heroEl = document.getElementById('projectModalHero');
     const thumbsEl = document.getElementById('projectModalThumbs');
 
+    const fullscreenBackdrop = document.getElementById('fullscreenBackdrop');
+    const fullscreenImg = document.getElementById('fullscreenImg');
+
     let lastFocused = null;
     let images = [];
     let current = 0;
@@ -371,7 +325,13 @@ print(introduction())
     function openModal({ title, desc, imgs }) {
       lastFocused = document.activeElement;
       titleEl.textContent = title || 'Project';
-      descEl.textContent = desc || '';
+
+      const normalized = (desc || '')
+        .replace(/&lt;br\s*\/?&gt;/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/\\n/g, '\n');
+      descEl.textContent = normalized;
+
       images = Array.isArray(imgs) && imgs.length ? imgs : [];
       current = 0;
 
@@ -398,7 +358,13 @@ print(introduction())
     }
 
     function onKey(e){
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        if (fullscreenBackdrop.classList.contains('show')) {
+          closeFullscreen();
+        } else {
+          closeModal();
+        }
+      }
       if (e.key === 'ArrowRight') step(1);
       if (e.key === 'ArrowLeft') step(-1);
     }
@@ -413,11 +379,17 @@ print(introduction())
     function renderGallery(){
       if (images.length){
         heroEl.src = images[0];
-        heroEl.alt = 'Project image ' + 1;
+        heroEl.alt = 'Project image 1';
       } else {
         heroEl.src = '';
         heroEl.alt = 'No image';
       }
+
+      // click-to-enlarge on hero
+      heroEl.onclick = () => {
+        if (!heroEl.src) return;
+        openFullscreen(heroEl.src);
+      };
 
       thumbsEl.innerHTML = '';
       images.forEach((src, idx) => {
@@ -429,6 +401,7 @@ print(introduction())
           current = idx;
           heroEl.src = images[current];
           updateActiveThumb();
+          openFullscreen(images[current]); // enlarge on click
         });
         thumbsEl.appendChild(img);
       });
@@ -439,6 +412,18 @@ print(introduction())
         el.classList.toggle('active', i === current);
       });
     }
+
+    function openFullscreen(src){
+      fullscreenImg.src = src;
+      fullscreenBackdrop.classList.add('show');
+    }
+
+    function closeFullscreen(){
+      fullscreenBackdrop.classList.remove('show');
+      fullscreenImg.src = '';
+    }
+
+    fullscreenBackdrop.addEventListener('click', closeFullscreen);
 
     document.addEventListener('click', (e) => {
       const link = e.target.closest('.more-details');
