@@ -58,21 +58,10 @@
       display:grid;grid-template-columns: 1.1fr 0.9fr;align-items:center;gap:32px;
     }
     .name{font-size:clamp(32px,7vw,64px);font-weight:800;margin:0 0 10px}
-    .tag{
-      font-size:clamp(12px,1.8vw,20px);
-      font-weight:800;
-      letter-spacing:.06em;
-      margin:0;
-      color:#eaf0ff;
-      white-space:nowrap;
-    }
+    .tag{font-size:clamp(12px,1.8vw,20px);font-weight:800;letter-spacing:.06em;margin:0;color:#eaf0ff;white-space:nowrap}
     @media (max-width:700px){ .tag{white-space:normal;} }
 
-    .code-window{
-      background:#1e1e2e;border-radius:12px;overflow:hidden;
-      box-shadow:0 12px 40px rgba(0,0,0,.35);max-width:520px;justify-self:end;
-      border:1px solid rgba(255,255,255,.08)
-    }
+    .code-window{background:#1e1e2e;border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.35);max-width:520px;justify-self:end;border:1px solid rgba(255,255,255,.08)}
     .code-header{background:#2b2b3c;padding:8px 12px;display:flex;gap:8px}
     .code-header .dot{height:12px;width:12px;border-radius:50%;display:inline-block}
     .dot.red{background:#ff5f56}.dot.yellow{background:#ffbd2e}.dot.green{background:#27c93f}
@@ -92,7 +81,6 @@
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:center}
     .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:10px 14px;border-radius:8px}
     .btn.outline{background:#fff;color:var(--accent);border:2px solid var(--accent)}
-
     footer{padding:40px 20px;text-align:center;color:var(--ink-dim)}
 
     .modal-backdrop{position:fixed;inset:0;background:rgba(10,16,28,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:1000;}
@@ -100,36 +88,45 @@
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
     .modal{background:#fff;border-radius:16px;max-width:960px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.28);border:1px solid #e5eaf1;overflow:hidden;}
-    .modal header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #eef2f6;background:#fbfdff}
+    .modal header{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #eef2f6;background:#fbfdff}
     .modal h3{margin:0;font-size:20px}
     .modal .close{appearance:none;border:0;background:transparent;font-size:26px;line-height:1;cursor:pointer;color:#718096;}
     .modal .content{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;padding:18px;}
     .modal .desc{color:#4d5560;white-space:pre-line}
-    .modal .gallery{display:grid;grid-template-rows:auto 70px;gap:8px;}
-    .modal .hero-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid #e5eaf1;cursor:zoom-in;}
+    .modal .gallery{display:grid;grid-template-rows:auto 70px;gap:8px;min-width:0;}
+    /* Fit images better */
+    .modal .hero-img{
+      width:100%;
+      height:auto;
+      aspect-ratio:16/9;
+      object-fit:contain;          /* prevent important parts from being cropped */
+      background:#0b1220;          /* subtle dark backdrop behind wide images */
+      border-radius:12px;
+      border:1px solid #e5eaf1;
+      max-height:70vh;             /* avoid overflow on short screens */
+      cursor:zoom-in;
+    }
     .thumbs{display:flex;gap:8px;overflow:auto}
-    .thumbs img{width:100px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;}
+    .thumbs img{
+      width:100px;
+      height:64px;
+      aspect-ratio:25/16;
+      object-fit:cover;
+      border-radius:8px;
+      border:2px solid transparent;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
     .thumbs img.active{border-color:var(--accent)}
-    @media (max-width:800px){.modal .content{grid-template-columns:1fr}}
+    @media (max-width:800px){
+      .modal .content{grid-template-columns:1fr}
+      .modal .hero-img{max-height:40vh}
+    }
 
     /* Fullscreen lightbox */
-    .fullscreen-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .fullscreen-backdrop.show { display: flex; }
-    .fullscreen-backdrop img {
-      max-width: 95%;
-      max-height: 95%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      cursor: zoom-out;
-    }
+    .fullscreen-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:2000}
+    .fullscreen-backdrop.show{display:flex}
+    .fullscreen-backdrop img{max-width:95%;max-height:95%;border-radius:8px;box-shadow:0 0 20px rgba(0,0,0,0.6);cursor:zoom-out}
   </style>
 </head>
 <body>
@@ -239,11 +236,9 @@ print(introduction())
       <article class="card">
         <h3>Forbes Valuations Dashboard (Proprietary)</h3>
         <p class="date">Dec 2024 - Feb 2025</p>
-         <p>Led research and database development on Forbes sports team valuations, conducting in-depth financial analysis and building a dynamic Power BI dashboard to uncover key trends and insights.</p>
+        <p>Led research and database development on Forbes sports team valuations, conducting in-depth financial analysis and building a dynamic Power BI dashboard to uncover key trends and insights.</p>
         <div class="chip">Power BI</div><div class="chip">Python</div><div class="chip">Excel Macros</div><div class="chip">Power Query</div>
-    </article>
-
-
+      </article>
 
       <article class="card">
         <h3>Charlotte Club Basketball Stats App</h3>
@@ -252,6 +247,7 @@ print(introduction())
         <div class="chip">Python</div><div class="chip">Streamlit</div>
         <div class="cta">
           <a class="btn outline" href="https://github.com/daiviknambiar/charlotte_mcbb_stats_app" target="_blank">View Project</a>
+        </div>
       </article>
 
       <article class="card">
@@ -292,7 +288,8 @@ print(introduction())
       </header>
       <div class="content">
         <div class="desc" id="projectModalDesc">Description goes here.</div>
-        <div class="gallery">
+        <!-- give gallery an id so we can hide it when no images -->
+        <div class="gallery" id="projectModalGallery">
           <img class="hero-img" id="projectModalHero" src="" alt="Project image">
           <div class="thumbs" id="projectModalThumbs"></div>
         </div>
@@ -300,7 +297,6 @@ print(introduction())
     </div>
   </div>
 
-  <!-- Fullscreen lightbox container -->
   <div class="fullscreen-backdrop" id="fullscreenBackdrop">
     <img id="fullscreenImg" src="" alt="Enlarged project image">
   </div>
@@ -314,6 +310,7 @@ print(introduction())
     const descEl = document.getElementById('projectModalDesc');
     const heroEl = document.getElementById('projectModalHero');
     const thumbsEl = document.getElementById('projectModalThumbs');
+    const galleryEl = document.getElementById('projectModalGallery');
 
     const fullscreenBackdrop = document.getElementById('fullscreenBackdrop');
     const fullscreenImg = document.getElementById('fullscreenImg');
@@ -334,6 +331,13 @@ print(introduction())
 
       images = Array.isArray(imgs) && imgs.length ? imgs : [];
       current = 0;
+
+      // Hide gallery entirely when no images
+      if (!images.length) {
+        galleryEl.style.display = 'none';
+      } else {
+        galleryEl.style.display = '';
+      }
 
       renderGallery();
       backdrop.classList.add('show');
@@ -377,15 +381,11 @@ print(introduction())
     }
 
     function renderGallery(){
-      if (images.length){
-        heroEl.src = images[0];
-        heroEl.alt = 'Project image 1';
-      } else {
-        heroEl.src = '';
-        heroEl.alt = 'No image';
-      }
+      if (!images.length) return;
 
-      // click-to-enlarge on hero
+      heroEl.src = images[0];
+      heroEl.alt = 'Project image 1';
+
       heroEl.onclick = () => {
         if (!heroEl.src) return;
         openFullscreen(heroEl.src);
@@ -401,7 +401,7 @@ print(introduction())
           current = idx;
           heroEl.src = images[current];
           updateActiveThumb();
-          openFullscreen(images[current]); // enlarge on click
+          openFullscreen(images[current]);
         });
         thumbsEl.appendChild(img);
       });
@@ -422,7 +422,6 @@ print(introduction())
       fullscreenBackdrop.classList.remove('show');
       fullscreenImg.src = '';
     }
-
     fullscreenBackdrop.addEventListener('click', closeFullscreen);
 
     document.addEventListener('click', (e) => {
